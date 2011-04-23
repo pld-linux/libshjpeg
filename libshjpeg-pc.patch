@@ -1,0 +1,9 @@
+--- dhobsong-libshjpeg-3b78698/shjpeg.pc.in.orig	2011-03-17 09:57:02.000000000 +0100
++++ dhobsong-libshjpeg-3b78698/shjpeg.pc.in	2011-04-23 06:38:52.880299139 +0200
+@@ -8,4 +8,5 @@
+ Requires:
+ Version: @VERSION@
+ Libs: -L${libdir} -lshjpeg
+-Cflags: -IR{includedir}
++Libs.private: -ldl
++Cflags: -I${includedir}
