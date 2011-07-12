@@ -1,15 +1,17 @@
 Summary:	Hardware-accelerated JPEG encoder/decoder library for SH Mobile
 Summary(pl.UTF-8):	Biblioteka sprzętowo wspomaganego kodera/dekodera JPEG dla SH Mobile
 Name:		libshjpeg
-Version:	1.3.5
-%define	gitver	3b78698
+Version:	1.3.6
+%define	gitver	79973e7
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 # trailing /%{name}-%{version}.tar.gz is a hack for df
 Source0:	https://github.com/dhobsong/libshjpeg/tarball/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	1e19ff8dc908d518114fe237750d327b
+# Source0-md5:	9f4fe9f81394c55beda06818c56082ee
 Patch0:		%{name}-pc.patch
+Patch1:		%{name}-flock.patch
+Patch2:		%{name}-Werror.patch
 URL:		http://github.com/dhobsong/libshjpeg
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake
@@ -66,6 +68,8 @@ Dokumentacja API biblioteki libshjpeg.
 %prep
 %setup -q -n dhobsong-%{name}-%{gitver}
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -85,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 # obsoleted by pkgconfig (with pc patch)
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libshjpeg.la
 # tests not packaged
-%{__rm} $RPM_BUILD_ROOT%{_bindir}/{libjpeg,shjpeg}test \
+%{__rm} $RPM_BUILD_ROOT%{_bindir}/{libjpegtest,shjpegtest,shjpegshow} \
 	$RPM_BUILD_ROOT%{_mandir}/man1/{libjpegtest,shjpegtest,shjpegshow}.1
 # HTML packaged in -apidocs
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/libshjpeg

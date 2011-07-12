@@ -1,0 +1,30 @@
+--- dhobsong-libshjpeg-79973e7/src/shjpeg_common.c.orig	2011-07-04 06:54:23.000000000 +0200
++++ dhobsong-libshjpeg-79973e7/src/shjpeg_common.c	2011-07-12 20:20:15.245495244 +0200
+@@ -24,6 +24,7 @@
+ #include <stdarg.h>
+ #include <fcntl.h>
+ #include <dirent.h>
++#include <sys/file.h>
+ #include <sys/ioctl.h>
+ #include <sys/mman.h>
+ #include <sys/param.h>
+--- dhobsong-libshjpeg-79973e7/src/shjpeg_decode.c.orig	2011-07-04 06:54:23.000000000 +0200
++++ dhobsong-libshjpeg-79973e7/src/shjpeg_decode.c	2011-07-12 20:20:38.392162687 +0200
+@@ -24,6 +24,7 @@
+ #include <stdarg.h>
+ #include <fcntl.h>
+ #include <dirent.h>
++#include <sys/file.h>
+ #include <sys/ioctl.h>
+ #include <sys/mman.h>
+ #include <setjmp.h>
+--- dhobsong-libshjpeg-79973e7/src/shjpeg_encode.c.orig	2011-07-04 06:54:23.000000000 +0200
++++ dhobsong-libshjpeg-79973e7/src/shjpeg_encode.c	2011-07-12 20:20:55.245496585 +0200
+@@ -24,6 +24,7 @@
+ #include <stdarg.h>
+ #include <fcntl.h>
+ #include <dirent.h>
++#include <sys/file.h>
+ #include <sys/ioctl.h>
+ #include <sys/mman.h>
+ 

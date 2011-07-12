@@ -1,0 +1,20 @@
+--- dhobsong-libshjpeg-79973e7/tests/shjpegtest.c.orig	2011-07-04 06:54:23.000000000 +0200
++++ dhobsong-libshjpeg-79973e7/tests/shjpegtest.c	2011-07-12 20:22:04.895498917 +0200
+@@ -88,7 +88,7 @@
+ 	       unsigned long phys, int pitch, int width, int height)
+ {
+     bmp_header_t bmp_header;
+-    int h, w, bw, size, raw_size, stride;
++    int h, w, size, raw_size, stride;
+     void *mem, *ptr;
+     FILE *file;
+     char *buffer = NULL, tmp;
+@@ -149,8 +149,6 @@
+     fprintf(file, "BM");
+     fwrite(&bmp_header, 1, sizeof(bmp_header), file);
+ 
+-    /* Write data */
+-    bw = bpp >> 3;
+ //    mem += (height - 1) * pitch;
+     ptr = mem;
+     for (h = 0; h < height; h++) {
